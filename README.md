@@ -11,3 +11,7 @@ The following process is based on Ubuntu (24.04) with a cross-compiler `gcc` and
 To build a kernel, run `make`.
 
 To run a kernel with `qemu`, run `make qemu`.
+
+To run a debugger, run `make qemu-gdb`.
+In another terminal, run `gdb-multiarch`.
+Then you can debug with `target remote:26000` in gdb.
