@@ -7,7 +7,8 @@ QEMUFLAGS = -machine virt -nographic -smp 1 -bios none
 KERNEL = kernel.elf
 OBJS = \
 	entry.o \
-	start.o
+	start.o \
+	uart.o
 
 .PHONY: kernel
 kernel: $(KERNEL)
