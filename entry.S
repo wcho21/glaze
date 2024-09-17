@@ -3,4 +3,8 @@
 _entry:
     la    sp,   stack + 4096
 
-    j     start
+    jal   start
+
+park:
+    wfi
+    j     park
