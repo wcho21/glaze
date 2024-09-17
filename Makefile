@@ -12,7 +12,8 @@ KERNEL = kernel.elf
 OBJS = \
 	entry.o \
 	start.o \
-	uart.o
+	uart.o \
+	context_switch.o
 
 .PHONY: kernel
 kernel: $(KERNEL)
@@ -21,10 +22,10 @@ $(KERNEL): $(OBJS)
 	$(LD) -T kernel.ld -o $@ $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $^
+	$(CC) $(CFLAGS) -c -g -o $@ $^
 
 entry.o: entry.S
-	$(CC) $(CFLAGS) -c -o $@ $^
+	$(CC) $(CFLAGS) -c -g -o $@ $^
 
 .PHONY: qemu
 qemu:
