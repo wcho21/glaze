@@ -4,7 +4,7 @@
 #include "types.h"
 #include "timer.h"
 
-__attribute__ ((aligned (16))) char stack[4096];
+__attribute__ ((aligned (16))) uint8_t stack[4096];
 
 uint8_t task_stack[4096];
 
