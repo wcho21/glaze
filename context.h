@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-struct context {
+typedef struct _context {
   uint64_t ra;
   uint64_t sp;
 
@@ -19,6 +19,6 @@ struct context {
   uint64_t s9;
   uint64_t s10;
   uint64_t s11;
-};
+} context;
 
 #endif
