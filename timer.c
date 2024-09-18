@@ -2,33 +2,24 @@
 #include "print.h"
 #include "riscv_csr.h"
 #include "types.h"
+#include "task.h"
 
-void update_mtimecmp(void);
+uint64_t scratch[32];
+
+static void update_mtimecmp(void);
 
 void init_timer(void) {
   update_mtimecmp();
 
-  write_mtvec((long)handle_timer_interrupt);
-
-  write_mstatus(read_mstatus() | MSTATUS_MIE);
+  write_mscratch((uint64_t)scratch);
 
   write_mie(read_mie() | MIE_MTIE);
 }
 
-uint64_t callback_timer_function(uint64_t epc) {
-  uint64_t return_pc = epc;
-
-  write_mie(~((~read_mie()) | MIE_MTIE));
-
-  print("Callback (Timer)\n");
-
+void handle_timer(void) {
   update_mtimecmp();
-
-  write_mie(read_mie() | MIE_MTIE);
-
-  return return_pc;
 }
 
-void update_mtimecmp(void) {
+static void update_mtimecmp(void) {
   *(uint64_t *)(CLINT_MTIMECMP) = *(uint64_t *)(CLINT_MTIME) + TIMER_INTERVAL_CYCLES;
 }

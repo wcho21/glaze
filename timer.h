@@ -11,6 +11,6 @@
 extern void handle_timer_interrupt();
 
 void init_timer(void);
-uint64_t callback_timer_function(uint64_t epc);
+void handle_timer(void);
 
 #endif

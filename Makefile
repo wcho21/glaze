@@ -16,7 +16,10 @@ OBJS = \
 	context_switch.o \
 	print.o \
 	timer.o \
-	timer_interrupt.o
+	task.o \
+	user_tasks.o \
+	trap_vector.o \
+	trap.o
 
 .PHONY: kernel
 kernel: $(KERNEL)
