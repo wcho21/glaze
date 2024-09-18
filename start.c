@@ -1,33 +1,30 @@
 #include "print.h"
-#include "context.h"
-#include "context_switch.h"
 #include "types.h"
 #include "timer.h"
 #include "riscv_memory.h"
+#include "user_tasks.h"
+#include "task.h"
+#include "trap.h"
 
 __attribute__ ((aligned (16))) uint8_t stack[STACK_SIZE];
 
-uint8_t task_stack[4096];
-
-context context_init;
-context context_task;
-
-void user_task(void);
+static void schedule_user_tasks();
 
 void start(void) {
-  print("Hello World!\n");
+  print("Booting: OK\n");
 
+  init_user_tasks();
+  init_trap();
   init_timer();
 
-  context_task.ra = (uint64_t)user_task;
-  context_task.sp = (uint64_t)&task_stack[4095];
-  context_switch(&context_init, &context_task);
+  schedule_user_tasks();
 }
 
-void user_task(void) {
-  print("Task Switched!\n");
+static void schedule_user_tasks() { // round-robin
+  task_id next = 0;
 
   for (;;) {
-    asm volatile("wfi");
+    switch_to_task(next);
+    next = (next + 1) % next_task_id;
   }
 }
