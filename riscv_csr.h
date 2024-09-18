@@ -1,5 +1,5 @@
-#ifndef RISCV_H
-#define RISCV_H
+#ifndef RISCV_CSR_H
+#define RISCV_CSR_H
 
 #include "types.h"
 
