@@ -14,7 +14,9 @@ OBJS = \
 	start.o \
 	uart.o \
 	context_switch.o \
-	print.o
+	print.o \
+	timer.o \
+	timer_interrupt.o
 
 .PHONY: kernel
 kernel: $(KERNEL)

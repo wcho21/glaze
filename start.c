@@ -2,6 +2,7 @@
 #include "context.h"
 #include "context_switch.h"
 #include "types.h"
+#include "timer.h"
 
 __attribute__ ((aligned (16))) char stack[4096];
 
@@ -14,6 +15,8 @@ void user_task(void);
 
 int start(void) {
   print("Hello World!\n");
+
+  init_timer();
 
   context_task.ra = (uint64_t)user_task;
   context_task.sp = (uint64_t)&task_stack[4095];
