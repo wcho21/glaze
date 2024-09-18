@@ -3,8 +3,9 @@
 #include "context_switch.h"
 #include "types.h"
 #include "timer.h"
+#include "riscv_memory.h"
 
-__attribute__ ((aligned (16))) uint8_t stack[4096];
+__attribute__ ((aligned (16))) uint8_t stack[STACK_SIZE];
 
 uint8_t task_stack[4096];
 
