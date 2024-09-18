@@ -13,7 +13,7 @@ context context_task;
 
 void user_task(void);
 
-int start(void) {
+void start(void) {
   print("Hello World!\n");
 
   init_timer();
@@ -21,8 +21,6 @@ int start(void) {
   context_task.ra = (uint64_t)user_task;
   context_task.sp = (uint64_t)&task_stack[4095];
   context_switch(&context_init, &context_task);
-
-  return 0;
 }
 
 void user_task(void) {
