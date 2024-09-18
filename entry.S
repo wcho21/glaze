@@ -3,7 +3,7 @@
 _entry:
     la    sp,   stack + 4096
 
-    jal   start
+    call  start
 
 park:
     wfi
