@@ -25,7 +25,7 @@ $(KERNEL): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c -g -o $@ $^
 
-entry.o: entry.S
+%.o: %.S
 	$(CC) $(CFLAGS) -c -g -o $@ $^
 
 .PHONY: qemu
