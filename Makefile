@@ -13,7 +13,10 @@ OBJS = \
 	entry.o \
 	start.o \
 	uart.o \
-	context_switch.o
+	context_switch.o \
+	print.o \
+	timer.o \
+	timer_interrupt.o
 
 .PHONY: kernel
 kernel: $(KERNEL)
@@ -24,7 +27,7 @@ $(KERNEL): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c -g -o $@ $^
 
-entry.o: entry.S
+%.o: %.S
 	$(CC) $(CFLAGS) -c -g -o $@ $^
 
 .PHONY: qemu
