@@ -1,4 +1,4 @@
-#include "uart.h"
+#include "print.h"
 #include "context.h"
 #include "context_switch.h"
 
@@ -9,7 +9,6 @@ unsigned char task_stack[4096];
 struct context context_init;
 struct context context_task;
 
-void print(char *str);
 void user_task(void);
 
 int start(void) {
@@ -20,12 +19,6 @@ int start(void) {
   context_switch(&context_init, &context_task);
 
   return 0;
-}
-
-void print(char *str) {
-  for (char *ch = str; *ch != '\0'; ch++) {
-    uart_put_char(*ch);
-  }
 }
 
 void user_task(void) {

@@ -13,7 +13,8 @@ OBJS = \
 	entry.o \
 	start.o \
 	uart.o \
-	context_switch.o
+	context_switch.o \
+	print.o
 
 .PHONY: kernel
 kernel: $(KERNEL)
