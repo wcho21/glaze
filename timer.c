@@ -3,8 +3,10 @@
 #include "riscv_csr.h"
 #include "types.h"
 
+void update_mtimecmp(void);
+
 void init_timer(void) {
-  *(long *)(CLINT_MTIMECMP) = *(long *)(CLINT_MTIME) + TIMER_INTERVAL_CYCLES;
+  update_mtimecmp();
 
   write_mtvec((long)handle_timer_interrupt);
 
@@ -20,9 +22,13 @@ uint64_t callback_timer_function(uint64_t epc) {
 
   print("Callback (Timer)\n");
 
-  *(long *)CLINT_MTIMECMP = *(long *)CLINT_MTIME + TIMER_INTERVAL_CYCLES;
+  update_mtimecmp();
 
   write_mie(read_mie() | MIE_MTIE);
 
   return return_pc;
+}
+
+void update_mtimecmp(void) {
+  *(uint64_t *)(CLINT_MTIMECMP) = *(uint64_t *)(CLINT_MTIME) + TIMER_INTERVAL_CYCLES;
 }
