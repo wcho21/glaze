@@ -3,6 +3,6 @@
 
 #include "context.h"
 
-extern void context_switch(struct context *old, struct context *new);
+extern void context_switch(context *old, context *new);
 
 #endif

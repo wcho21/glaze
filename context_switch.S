@@ -1,4 +1,4 @@
-# void context_switch(struct context *old, struct context *new);
+# void context_switch(context *old, context *new);
 
 .global context_switch
 context_switch:

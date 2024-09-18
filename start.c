@@ -8,8 +8,8 @@ __attribute__ ((aligned (16))) char stack[4096];
 
 uint8_t task_stack[4096];
 
-struct context context_init;
-struct context context_task;
+context context_init;
+context context_task;
 
 void user_task(void);
 
