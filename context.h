@@ -1,22 +1,24 @@
 #ifndef CONTEXT_H
 #define CONTEXT_H
 
-struct context {
-  long ra;
-  long sp;
+#include "types.h"
 
-  long s0;
-  long s1;
-  long s2;
-  long s3;
-  long s4;
-  long s5;
-  long s6;
-  long s7;
-  long s8;
-  long s9;
-  long s10;
-  long s11;
+struct context {
+  uint64_t ra;
+  uint64_t sp;
+
+  uint64_t s0;
+  uint64_t s1;
+  uint64_t s2;
+  uint64_t s3;
+  uint64_t s4;
+  uint64_t s5;
+  uint64_t s6;
+  uint64_t s7;
+  uint64_t s8;
+  uint64_t s9;
+  uint64_t s10;
+  uint64_t s11;
 };
 
 #endif
