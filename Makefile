@@ -34,11 +34,11 @@ $(KERNEL): $(OBJS)
 	$(CC) $(CFLAGS) -c -g -o $@ $^
 
 .PHONY: qemu
-qemu:
+qemu: $(KERNEL)
 	$(QEMU) $(QEMUFLAGS) -kernel $(KERNEL)
 
 .PHONY: qemu-gdb
-qemu-gdb:
+qemu-gdb: $(KERNEL)
 	$(QEMU) $(QEMUFLAGS) -kernel $(KERNEL) $(QEMUGDB)
 
 .PHONY: clean
