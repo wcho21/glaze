@@ -16,7 +16,10 @@ OBJS = \
 	context_switch.o \
 	print.o \
 	timer.o \
-	timer_interrupt.o
+	task.o \
+	user_tasks.o \
+	trap_vector.o \
+	trap.o
 
 .PHONY: kernel
 kernel: $(KERNEL)
@@ -31,11 +34,11 @@ $(KERNEL): $(OBJS)
 	$(CC) $(CFLAGS) -c -g -o $@ $^
 
 .PHONY: qemu
-qemu:
+qemu: $(KERNEL)
 	$(QEMU) $(QEMUFLAGS) -kernel $(KERNEL)
 
 .PHONY: qemu-gdb
-qemu-gdb:
+qemu-gdb: $(KERNEL)
 	$(QEMU) $(QEMUFLAGS) -kernel $(KERNEL) $(QEMUGDB)
 
 .PHONY: clean
