@@ -1,5 +1,5 @@
 #include "print.h"
-#include "types.h"
+#include "int_types.h"
 #include "timer.h"
 #include "riscv_memory.h"
 #include "user_tasks.h"

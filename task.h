@@ -1,7 +1,7 @@
 #ifndef TASK_H
 #define TASK_H
 
-#include "types.h"
+#include "int_types.h"
 
 #define MAX_TASKS 16
 

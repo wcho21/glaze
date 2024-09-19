@@ -1,5 +1,6 @@
 #include "task.h"
-#include "types.h"
+#include "int_types.h"
+#include "riscv_types.h"
 #include "context.h"
 #include "context_switch.h"
 #include "riscv_memory.h"
@@ -18,8 +19,8 @@ task_id create_task(task task) {
 
   // initialize context
   context *context = &task_contexts[id];
-  context->ra = (uint64_t) task;
-  context->sp = (uint64_t) &task_stacks[id][STACK_SIZE-1];
+  context->ra = (reg) task;
+  context->sp = (reg) &task_stacks[id][STACK_SIZE-1];
 
   return id;
 }
@@ -29,7 +30,6 @@ void switch_to_task(task_id i) {
   context_switch(&os_context, active_context);
 }
 
-#include "print.h"
 void switch_to_os(void) {
   context_switch(active_context, &os_context);
 }

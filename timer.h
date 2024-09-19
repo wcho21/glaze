@@ -1,8 +1,6 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#include "types.h"
-
 #define CLINT_MTIMECMP        0x2004000
 #define CLINT_MTIME           0x200BFF8
 
