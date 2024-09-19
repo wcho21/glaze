@@ -9,7 +9,7 @@ static int sprintstr(char *out, char *str);
 
 static char out_buffer[OUT_BUFFER_SIZE];
 
-void print(char *str) {
+void putstr(char *str) {
   for (char *ch = str; *ch != '\0'; ch++) {
     uart_put_char(*ch);
   }
@@ -26,7 +26,7 @@ int vprintf(char *format, va_list args) {
   // TODO: error on buffer overflow
 
   int length = vsprintf(out_buffer, format, args);
-  print(out_buffer);
+  putstr(out_buffer);
 
   return length;
 }
