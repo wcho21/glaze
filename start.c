@@ -11,7 +11,7 @@ __attribute__ ((aligned (16))) uint8 stack[STACK_SIZE];
 static void schedule_user_tasks();
 
 void start(void) {
-  print("Booting: OK\n");
+  printf("Booting: OK\n");
 
   init_user_tasks();
   init_trap();

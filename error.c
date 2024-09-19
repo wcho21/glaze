@@ -2,9 +2,7 @@
 #include "print.h"
 
 void error(char* reason) {
-  print("Error: ");
-  print(reason);
-  print("\n");
+  printf("Error: %s\n", reason);
 
   for (;;) {
     __asm__ volatile("wfi");
