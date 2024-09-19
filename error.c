@@ -7,6 +7,6 @@ void error(char* reason) {
   print("\n");
 
   for (;;) {
-    asm volatile("wfi");
+    __asm__ volatile("wfi");
   }
 }
