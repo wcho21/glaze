@@ -15,21 +15,21 @@ void init_user_tasks(void) {
 
 static void user_task1(void) {
   for (;;) {
-    print("1");
+    printf("1");
     delay();
   }
 }
 
 static void user_task2(void) {
   for (;;) {
-    print("2");
+    printf("2");
     delay();
   }
 }
 
 static void user_task3(void) {
   for (;;) {
-    print("3");
+    printf("3");
     delay();
   }
 }
