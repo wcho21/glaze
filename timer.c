@@ -1,17 +1,18 @@
 #include "timer.h"
 #include "print.h"
 #include "riscv_csr.h"
-#include "types.h"
+#include "riscv_types.h"
+#include "int_types.h"
 #include "task.h"
 
-uint64_t scratch[32];
+reg scratch[32];
 
 static void update_mtimecmp(void);
 
 void init_timer(void) {
   update_mtimecmp();
 
-  write_mscratch((uint64_t)scratch);
+  write_mscratch((reg)scratch);
 
   write_mie(read_mie() | MIE_MTIE);
 }
@@ -21,5 +22,5 @@ void handle_timer(void) {
 }
 
 static void update_mtimecmp(void) {
-  *(uint64_t *)(CLINT_MTIMECMP) = *(uint64_t *)(CLINT_MTIME) + TIMER_INTERVAL_CYCLES;
+  *(reg *)(CLINT_MTIMECMP) = *(reg *)(CLINT_MTIME) + TIMER_INTERVAL_CYCLES;
 }

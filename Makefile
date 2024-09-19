@@ -19,7 +19,8 @@ OBJS = \
 	task.o \
 	user_tasks.o \
 	trap_vector.o \
-	trap.o
+	trap.o \
+	error.o
 
 .PHONY: kernel
 kernel: $(KERNEL)

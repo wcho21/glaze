@@ -1,12 +1,12 @@
 #include "print.h"
-#include "types.h"
+#include "int_types.h"
 #include "timer.h"
 #include "riscv_memory.h"
 #include "user_tasks.h"
 #include "task.h"
 #include "trap.h"
 
-__attribute__ ((aligned (16))) uint8_t stack[STACK_SIZE];
+__attribute__ ((aligned (16))) uint8 stack[STACK_SIZE];
 
 static void schedule_user_tasks();
 
