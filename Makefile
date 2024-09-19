@@ -4,7 +4,7 @@ QEMU = qemu-system-riscv64
 
 GDBPORT = 26000
 
-CFLAGS = -Wall -Werror -nostdlib -mcmodel=medany
+CFLAGS = -std=c17 -Wall -Werror -nostdlib -mcmodel=medany
 QEMUFLAGS = -machine virt -nographic -smp 1 -bios none
 QEMUGDB = -S -gdb tcp::$(GDBPORT)
 
