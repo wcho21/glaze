@@ -5,7 +5,7 @@
 #include "context_switch.h"
 #include "riscv_memory.h"
 
-static uint8_t task_stacks[MAX_TASKS][STACK_SIZE];
+static uint8 task_stacks[MAX_TASKS][STACK_SIZE];
 static context task_contexts[MAX_TASKS];
 task_id next_task_id = 0;
 

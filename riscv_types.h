@@ -3,6 +3,6 @@
 
 #include "int_types.h"
 
-typedef uint64_t reg; // rv64 register
+typedef uint64 reg; // rv64 register
 
 #endif

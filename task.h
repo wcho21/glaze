@@ -6,7 +6,7 @@
 #define MAX_TASKS 16
 
 typedef void (*task)(void);
-typedef uint32_t task_id;
+typedef uint32 task_id;
 
 extern task_id next_task_id;
 
